@@ -1,6 +1,12 @@
-import { Avatar, Button, Flex, Heading } from "@chakra-ui/react";
+import { Avatar, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import UserProfile from './UserProfile'
+import data from "../data.json";
+import Tracker from "./Tracker";
 
 const Content = () => {
+  const datas = data
+  console.log(datas[0].title)
+
   return (
     <Flex
       h="100vh"
@@ -13,141 +19,18 @@ const Content = () => {
       <Flex
         id="container"
         w="1000px"
-        h="450px"
-        border="2px"
+        h="400px"
         align="center"
         justify="center"
-        bgColor="neutral.darkBlue"
+        bgColor="neutral.veryDarkBlue"
+        gap='20px'
       >
-        <Flex
-          id="userprofilelayout"
-          align="center"
-          justify="flex-start"
-          w="25%"
-          border="2px"
-          h="100%"
-          bgColor="neutral.desaturatedBlue"
-          direction='column'
-        >
-          <Flex
-            id="userprofile"
-            align="flex-start"
-            border="2px"
-            justify="center"
-            h="65%"
-            w="80%"
-            direction="column"
-          >
-            <Flex id="avatar" align="center" justify="center">
-              <Avatar></Avatar>
-            </Flex>
-            Report for
-            <Flex id="username">
-              <Heading>Jeremy Robson</Heading>
-            </Flex>
-          </Flex>
-          <Flex id='timecategory' align='flex-start' justify='center' direction='column' w='80%' border='2px' h='35%'>
-            <Flex id='dailycategory'>
-                Daily
-            </Flex>
-            <Flex id='weeklycategory'>
-                Weekly
-            </Flex>
-            <Flex id='monthlycategory'>
-                Monthly
-            </Flex>
-          </Flex>
+        <UserProfile />
+        
+        <Flex id='categories' w='730px' border='2px'>
+          <Tracker />
         </Flex>
-        <Flex
-          id="workandexercise"
-          align="center"
-          justify="center"
-          w="25%"
-          direction="column"
-          border="2px"
-          h="100%"
-        >
-          <Flex
-            id="work"
-            align="center"
-            justify="center"
-            border="2px"
-            h="50%"
-            w="100%"
-          >
-            b
-          </Flex>
-          <Flex
-            id="exercise"
-            align="center"
-            justify="center"
-            border="2px"
-            h="50%"
-            w="100%"
-          >
-            c
-          </Flex>
-        </Flex>
-        <Flex
-          id="playandsocial"
-          align="center"
-          justify="center"
-          w="25%"
-          direction="column"
-          border="2px"
-          h="100%"
-        >
-          <Flex
-            id="play"
-            align="center"
-            justify="center"
-            border="2px"
-            h="50%"
-            w="100%"
-          >
-            d
-          </Flex>
-          <Flex
-            id="social"
-            align="center"
-            justify="center"
-            border="2px"
-            h="50%"
-            w="100%"
-          >
-            e
-          </Flex>
-        </Flex>
-        <Flex
-          id="studyandselfcare"
-          align="center"
-          justify="center"
-          w="25%"
-          direction="column"
-          border="2px"
-          h="100%"
-        >
-          <Flex
-            id="study"
-            align="center"
-            justify="center"
-            border="2px"
-            h="50%"
-            w="100%"
-          >
-            f
-          </Flex>
-          <Flex
-            id="selfcare"
-            align="center"
-            justify="center"
-            border="2px"
-            h="50%"
-            w="100%"
-          >
-            g
-          </Flex>
-        </Flex>
+
       </Flex>
     </Flex>
   );
