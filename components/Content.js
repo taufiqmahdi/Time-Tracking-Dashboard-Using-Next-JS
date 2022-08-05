@@ -1,11 +1,15 @@
 import { Avatar, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
-import UserProfile from './UserProfile'
+import UserProfile from "./UserProfile";
 import data from "../data.json";
-import Tracker from "./Tracker";
+import Trackers from "./Trackers";
 
 const Content = () => {
-  const datas = data
-  console.log(datas[0].title)
+  // const datas = data
+  // console.log(data[0].title)
+
+  // data.forEach(element => {
+  //   console.log(element)
+  // });
 
   return (
     <Flex
@@ -23,14 +27,25 @@ const Content = () => {
         align="center"
         justify="center"
         bgColor="neutral.veryDarkBlue"
-        gap='20px'
+        gap="20px"
       >
         <UserProfile />
-        
-        <Flex id='categories' w='730px' border='2px'>
-          <Tracker />
-        </Flex>
 
+        <Flex id="categories" w="730px">
+          <Flex w="100%">
+            <Flex
+              id="workandexercise"
+              align="center"
+              justify="center"
+              w="225px"
+              direction="column"
+              h="400px"
+              wrap="wrap"
+            >
+              <Trackers data={data} />
+            </Flex>
+          </Flex>
+        </Flex>
       </Flex>
     </Flex>
   );
