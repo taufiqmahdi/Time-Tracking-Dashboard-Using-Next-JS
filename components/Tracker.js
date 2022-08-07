@@ -1,32 +1,92 @@
 import { Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { useState } from "react";
 
-const Tracker = ({ data }) => {
-    // console.log(data)
+const Tracker = ({ data, timeCategory }) => {
+  // console.log(data)
+
+  const [categoryBackground, setCategoryBackground] = useState(true);
+  // const [categoryColor, setCategoryColor] = useState('');
+  // const [categoryImage, setCategoryImage] = useState('');
+  // const [categoryImageAlt, setCategoryImageAlt] = useState('');
+
+  let categoryColor = "";
+  let categoryImage = "";
+  let categoryImageAlt = "";
+
+  if (data.title == "Work") {
+    categoryColor = "primary.lightRed.work";
+    categoryImage = "icon-work.svg";
+    categoryImageAlt = "icon-work";
+  } else if (data.title == "Play") {
+    categoryColor = "primary.softBlue.play";
+    categoryImage = "icon-play.svg";
+    categoryImageAlt = "icon-play";
+  } else if (data.title == "Study") {
+    categoryColor = "primary.lightRed.study";
+    categoryImage = "icon-study.svg";
+    categoryImageAlt = "icon-study";
+  } else if (data.title == "Exercise") {
+    categoryColor = "primary.limeGreen.exercise";
+    categoryImage = "icon-exercise.svg";
+    categoryImageAlt = "icon-exercise";
+  } else if (data.title == "Social") {
+    categoryColor = "primary.violet.social";
+    categoryImage = "icon-social.svg";
+    categoryImageAlt = "icon-social";
+  } else {
+    categoryColor = "primary.softOrange.selfCare";
+    categoryImage = "icon-self-care.svg";
+    categoryImageAlt = "icon-self-care";
+  }
 
   return (
-    <Flex id="work" align="center" justify="center" h="50%" w="225px" pb="20px">
+    <Flex
+      id="work"
+      align="center"
+      justify="center"
+      h="200px"
+      // w="225px"
+      pb="20px"
+      // border="2px"
+    >
       <Flex
-        bgColor="primary.lightRed.work"
-        w="80%"
+        bgColor={categoryColor}
+        w="180px"
         h="180px"
         direction="column"
         borderRadius="15px"
+        // pb='10px'
       >
         <Flex h="15%" w="100%" justify="right" pr="10px">
-          <Image src="icon-work.svg" alt="icon-work" fit="cover" w="25%" />
+          <Image
+            src={categoryImage}
+            alt={categoryImageAlt}
+            fit="cover"
+            w="25%"
+          />
         </Flex>
         <Flex
-          h="95%"
+          h="85%"
           w="100%"
-          bgColor="neutral.darkBlue"
+          bgColor={
+            categoryBackground == true
+              ? "neutral.darkBlue"
+              : "neutral.desaturatedBlue"
+          }
           borderRadius="15px"
           p="20px"
           direction="column"
           justify="space-between"
+          onMouseOver={() => {
+            setCategoryBackground(false);
+          }}
+          cursor= {categoryBackground == false ? 'pointer' : ''}
+          onMouseLeave={() => setCategoryBackground(true)}
+          // _hover={}
         >
           <Flex w="100%" justify="space-between" align="center">
             <Flex>{data.title}</Flex>
-            <Flex>
+            <Flex _hover={{ cursor: "pointer" }} h="100%">
               <Image
                 src="icon-ellipsis.svg"
                 alt="icon-ellipsis"
@@ -35,10 +95,14 @@ const Tracker = ({ data }) => {
             </Flex>
           </Flex>
           <Flex pt="30px">
-            <Heading fontWeight="300">{data.timeframes.weekly.current}</Heading>
+            <Heading fontWeight="300">
+              {data.timeframes.weekly.current}hrs
+            </Heading>
           </Flex>
           <Flex>
-            <Text fontWeight="300">Last Week - {data.timeframes.weekly.previous}</Text>
+            <Text fontWeight="300">
+              Last Week - {data.timeframes.weekly.previous}hrs
+            </Text>
           </Flex>
         </Flex>
       </Flex>

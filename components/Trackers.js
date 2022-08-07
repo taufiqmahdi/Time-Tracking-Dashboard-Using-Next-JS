@@ -1,7 +1,7 @@
 import { Flex, Heading, Image, Text } from "@chakra-ui/react";
 import Tracker from "./Tracker";
 
-const Trackers = ({ data }) => {
+const Trackers = ({ data, timeCategory }) => {
   // const datas = data.data;
 
   // console.log(typeof data)
@@ -31,7 +31,7 @@ const Trackers = ({ data }) => {
   return ( 
     <>
       {data.map((data) => (
-        <Tracker data={data} />
+        <Tracker data={data} timeCategory={timeCategory} />
       ))}
     </>
 

@@ -2,6 +2,7 @@ import { Avatar, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import UserProfile from "./UserProfile";
 import data from "../data.json";
 import Trackers from "./Trackers";
+import { useState } from "react";
 
 const Content = () => {
   // const datas = data
@@ -11,8 +12,11 @@ const Content = () => {
   //   console.log(element)
   // });
 
+  const [timeCategory, setTimeCategory] = useState("weekly");
+
   return (
     <Flex
+      id='background'
       h="100vh"
       fontFamily="Rubik"
       bgColor="neutral.veryDarkBlue"
@@ -22,18 +26,25 @@ const Content = () => {
     >
       <Flex
         id="container"
-        w="1000px"
-        h="400px"
+        w="780px"
+        h="380px"
         align="center"
-        justify="center"
+        justify="space-between"
         bgColor="neutral.veryDarkBlue"
-        gap="20px"
       >
-        <UserProfile />
+        <UserProfile setTimeCategory={timeCategory} />
 
-        <Flex id="categories" w="730px">
-          <Flex w="100%">
-            <Flex
+        <Flex id="categories" w="580px" h="380px" wrap="wrap" justify='space-between'>
+          {/* <Flex 
+          // w="100%" 
+          id="workandexercise"
+              align="center"
+              justify="center"
+              w="225px"
+              direction="column"
+              h="400px"
+              wrap="wrap"> */}
+            {/* <Flex
               id="workandexercise"
               align="center"
               justify="center"
@@ -41,10 +52,10 @@ const Content = () => {
               direction="column"
               h="400px"
               wrap="wrap"
-            >
+            > */}
               <Trackers data={data} />
-            </Flex>
-          </Flex>
+            {/* </Flex> */}
+          {/* </Flex> */}
         </Flex>
       </Flex>
     </Flex>
