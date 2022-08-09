@@ -12,7 +12,10 @@ const Content = () => {
   //   console.log(element)
   // });
 
-  const [timeCategory, setTimeCategory] = useState("weekly");
+  const [timeCategory, setTimeCategory] = useState("daily");
+  const handleTimeCategoryChange = timeCategory => {
+    setTimeCategory(timeCategory)
+  }
 
   return (
     <Flex
@@ -32,7 +35,9 @@ const Content = () => {
         justify="space-between"
         bgColor="neutral.veryDarkBlue"
       >
-        <UserProfile setTimeCategory={timeCategory} />
+        <UserProfile timeCategory={timeCategory} onTimeCategoryChange={handleTimeCategoryChange} />
+
+        {console.log(timeCategory)}
 
         <Flex id="categories" w="580px" h="380px" wrap="wrap" justify='space-between'>
           {/* <Flex 

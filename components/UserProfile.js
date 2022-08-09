@@ -1,8 +1,12 @@
 import { Flex, Avatar, Heading, Text } from "@chakra-ui/react";
 import { useState } from "react";
 
-const UserProfile = ({ setTimeCategory }) => {
+const UserProfile = ({ timeCategory, onTimeCategoryChange }) => {
   // const [timeCategory, setTimeCategory] = useState("weekly");
+
+  const handleChange = timeCategory => {
+    onTimeCategoryChange(timeCategory)
+  }
 
   return (
     // <Flex
@@ -59,7 +63,7 @@ const UserProfile = ({ setTimeCategory }) => {
         <Flex
           id="dailycategory"
           color={timeCategory == "daily" ? "white" : ""}
-          onClick={() => setTimeCategory("daily")}
+          onClick={() => handleChange("daily")}
           _hover={{
             color: 'white',
             cursor: 'pointer'
@@ -70,7 +74,7 @@ const UserProfile = ({ setTimeCategory }) => {
         <Flex
           id="weeklycategory"
           color={timeCategory == "weekly" ? "white" : ""}
-          onClick={() => setTimeCategory("weekly")}
+          onClick={() => handleChange("weekly")}
           _hover={{
             color: 'white',
             cursor: 'pointer'
@@ -81,7 +85,7 @@ const UserProfile = ({ setTimeCategory }) => {
         <Flex
           id="monthlycategory"
           color={timeCategory == "monthly" ? "white" : ""}
-          onClick={() => setTimeCategory("monthly")}
+          onClick={() => handleChange("monthly")}
           _hover={{
             color: 'white',
             cursor: 'pointer'
