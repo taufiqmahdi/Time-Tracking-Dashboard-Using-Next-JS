@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Vercel](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/time-tracking-dashboard-using-next-js-rNsjdWqzep)
+- Live Site URL: [Vercel](https://time-tracking-dashboard-using-next-m9dig7p6k-taufiqmahdi.vercel.app/)
 - Github: [Github](https://github.com/taufiqmahdi/Time-Tracking-Dashboard-Using-Next-JS)
 
 ## My process
