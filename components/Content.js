@@ -37,8 +37,6 @@ const Content = () => {
       >
         <UserProfile timeCategory={timeCategory} onTimeCategoryChange={handleTimeCategoryChange} />
 
-        {console.log(timeCategory)}
-
         <Flex id="categories" w="580px" h="380px" wrap="wrap" justify='space-between'>
           {/* <Flex 
           // w="100%" 
@@ -58,7 +56,7 @@ const Content = () => {
               h="400px"
               wrap="wrap"
             > */}
-              <Trackers data={data} />
+              <Trackers data={data} timeCategory={timeCategory} />
             {/* </Flex> */}
           {/* </Flex> */}
         </Flex>

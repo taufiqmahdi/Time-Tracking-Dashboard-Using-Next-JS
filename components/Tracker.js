@@ -2,7 +2,14 @@ import { Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { useState } from "react";
 
 const Tracker = ({ data, timeCategory }) => {
-  // console.log(data)
+  // console.log(timeCategory)
+
+  const currentData = data.timeframes[timeCategory].current
+  const previousData = data.timeframes[timeCategory].previous
+
+  // const dataCurrent = {currentData}
+
+  // console.log(currentData)
 
   const [categoryBackground, setCategoryBackground] = useState(true);
   // const [categoryColor, setCategoryColor] = useState('');
@@ -96,12 +103,12 @@ const Tracker = ({ data, timeCategory }) => {
           </Flex>
           <Flex pt="30px">
             <Heading fontWeight="300">
-              {data.timeframes.weekly.current}hrs
+              {currentData}hrs
             </Heading>
           </Flex>
           <Flex>
             <Text fontWeight="300">
-              Last Week - {data.timeframes.weekly.previous}hrs
+              Last Week - {previousData}hrs
             </Text>
           </Flex>
         </Flex>
