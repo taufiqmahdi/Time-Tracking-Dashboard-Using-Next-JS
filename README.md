@@ -1,34 +1,104 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend Mentor - Time tracking dashboard solution
 
-## Getting Started
+This is a solution to the [Time tracking dashboard challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/time-tracking-dashboard-UIQ7167Jw). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-First, run the development server:
+## Table of contents
 
-```bash
-npm run dev
-# or
-yarn dev
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
+
+## Overview
+
+### The challenge
+
+Users should be able to:
+
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Switch between viewing Daily, Weekly, and Monthly stats
+
+### Screenshot
+
+![](./screenshot.jpg)
+![](./screenshot2.jpg)
+
+### Links
+
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Vercel](https://your-live-site-url.com)
+- Github: [Github](https://github.com/taufiqmahdi/Time-Tracking-Dashboard-Using-Next-JS)
+
+## My process
+
+### Built with
+
+- CSS custom properties
+- Flexbox
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+- [Chakra UI](https://chakra-ui.com/) - For styles
+
+### What I learned
+
+- Learned how to share state between child, parents and sibling. Moved the state and its function to set the state to the parents, so the state in the parent become the only source of truth.
+
+```js
+const Parent = () => {
+    const [timeCategory, setTimeCategory] = useState("daily");
+    const handleTimeCategoryChange = (timeCategory) => {
+        setTimeCategory(timeCategory);
+    };
+
+    return (
+        <Child1 timeCategory={timeCategory} onTimeCategoryChange={handleTimeCategoryChange} />
+        <Child2 timeCategory={timeCategory} />
+    )
+}
+
+const Child1 = ({ timeCategory, onTimeCategoryChange }) => {
+    const handleChange = (timeCategory) => {
+        onTimeCategoryChange(timeCategory);
+  };
+}
+
+const Child2 = ({ data, timeCategory }) => {}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Learned how to map a component, so we can only work on one componenet and then map each of the needed component and pass props to change the component state or style
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```js
+Const Parent = () => {
+    return (
+        <>
+        {data.map((data) => (
+            <Child data={data} />
+        ))}
+        </>
+    )
+}
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+const Child = ({ data }) => {}
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Learned how to add another instance of object in one object notation
 
-## Learn More
+```js
+const thisOneObject = data.timeframes[thisAnotherObject].current
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Continued development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Can try to develop another same function application and maybe use a backend and a database and add a authentication of users.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Author
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Frontend Mentor - [@taufiqmahdi](https://www.frontendmentor.io/profile/taufiqmahdi)
+- Twitter - [@taufiqmhdi](https://www.twitter.com/taufiqmhdi)

@@ -30,8 +30,8 @@ const Trackers = ({ data, timeCategory }) => {
 
   return ( 
     <>
-      {data.map((data) => (
-        <Tracker data={data} timeCategory={timeCategory} />
+      {data.map((data, index) => (
+        <Tracker key={index} data={data} timeCategory={timeCategory} />
       ))}
     </>
 
