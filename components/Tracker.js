@@ -51,15 +51,16 @@ const Tracker = ({ data, timeCategory }) => {
       id="work"
       align="center"
       justify="center"
-      h="200px"
+      h={{desktop: "200px", mobile: '175px'}}
+      // w={{desktop: 'auto', mobile: '175px'}}
       // w="225px"
-      pb="20px"
+      pb={{desktop: "20px", mobile: '0px'}}
       // border="2px"
     >
       <Flex
         bgColor={categoryColor}
-        w="180px"
-        h="180px"
+        w={{desktop: "180px", mobile: '300px'}}
+        h={{desktop: "180px", mobile: '175px'}}
         direction="column"
         borderRadius="15px"
         // pb='10px'
